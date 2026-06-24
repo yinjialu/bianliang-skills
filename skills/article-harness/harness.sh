@@ -23,8 +23,15 @@ echo "📄 草稿：$DRAFT"
 echo "🔄 最大轮次：$MAX_ITER"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-WRITER_SYSTEM=$(cat "$SKILL_DIR/writer.md")
-REVIEWER_SYSTEM=$(cat "$SKILL_DIR/reviewer.md")
+# 个人写作品味优先：本地存在则用本地，否则退仓内通用模板
+LOCAL_DIR="${ARTICLE_HARNESS_LOCAL:-$HOME/Documents/context-harness-data/article-harness}"
+WRITER_MD="$SKILL_DIR/writer.md";     [ -f "$LOCAL_DIR/writer.md" ]   && WRITER_MD="$LOCAL_DIR/writer.md"
+REVIEWER_MD="$SKILL_DIR/reviewer.md"; [ -f "$LOCAL_DIR/reviewer.md" ] && REVIEWER_MD="$LOCAL_DIR/reviewer.md"
+if [ -n "${HARNESS_DEBUG_PATHS:-}" ]; then
+  echo "writer: $WRITER_MD"; echo "reviewer: $REVIEWER_MD"; exit 0
+fi
+WRITER_SYSTEM=$(cat "$WRITER_MD")
+REVIEWER_SYSTEM=$(cat "$REVIEWER_MD")
 
 for i in $(seq 1 "$MAX_ITER"); do
   echo ""
