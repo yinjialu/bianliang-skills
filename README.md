@@ -1,5 +1,7 @@
 # bianliang-skills
 
+当前版本：`0.1.0`
+
 变量生活的内容生产 skills。按 [skills.sh](https://skills.sh/) 发布，`npx skills add yinjialu/bianliang-skills` 安装（Claude Code / Codex 通用）。
 
 本仓库本身就是 skill 源仓库；在本仓开发时不要再对当前目录执行安装命令，否则会生成 `.agents/`、`skills-lock.json` 或 symlink 布局，干扰 git 追踪。
@@ -13,3 +15,13 @@
 ## 后续
 
 review-wechat-layout、wechat-official-draft 将陆续收敛进本仓统一管理。
+
+## release
+
+用 semver 升级、推送远程 main、打 tag，并更新本机全局安装：
+
+```bash
+scripts/release.sh 0.1.1
+```
+
+release 脚本会使用 `npx skills` 更新/安装 `article-harness`，覆盖 Claude Code 和 Codex 的全局使用路径。
