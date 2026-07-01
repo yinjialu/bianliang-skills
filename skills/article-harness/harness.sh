@@ -1,7 +1,11 @@
 #!/bin/bash
-# article-harness: Writer-Reviewer 迭代循环
+# article-harness: Claude Code CLI runner for the Writer-Reviewer loop
 # 用法: bash harness.sh <draft.md路径> [最大轮次=5]
 # sources 字段（conversation + article）在 draft.md frontmatter 中自管理
+#
+# Codex 内运行 article-harness 时优先由 Codex 主 Agent 使用 subagent
+# 能力编排 Writer/Reviewer；仅在 Codex 没有 subagent 工具或用户显式
+# 从 shell 调用时，才落回本 Claude Code CLI runner。
 
 set -euo pipefail
 
