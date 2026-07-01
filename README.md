@@ -1,6 +1,6 @@
 # bianliang-skills
 
-当前版本：`0.1.0`
+当前版本：`0.1.1`
 
 变量生活的内容生产 skills。按 [skills.sh](https://skills.sh/) 发布，`npx skills add yinjialu/bianliang-skills` 安装（Claude Code / Codex 通用）。
 

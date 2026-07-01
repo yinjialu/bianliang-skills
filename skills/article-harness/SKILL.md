@@ -1,6 +1,6 @@
 ---
 name: article-harness
-version: 0.1.0
+version: 0.1.1
 description: 将带骨架的草稿通过 Writer-Reviewer 迭代循环打磨为可发布文章。当用户说"打磨文章"、"迭代草稿"、"article harness"、"跑 harness"时触发。
 ---
 

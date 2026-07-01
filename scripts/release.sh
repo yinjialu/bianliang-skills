@@ -131,11 +131,7 @@ git_cmd tag -a "v$VERSION" -m "v$VERSION"
 git_cmd push origin main
 git_cmd push origin "v$VERSION"
 
-if [ -d "$HOME/.agents/skills/article-harness" ] || [ -d "$HOME/.codex/skills/article-harness" ]; then
-  npx_cmd skills update article-harness -g -y
-else
-  npx_cmd skills add yinjialu/bianliang-skills -g --skill article-harness --agent claude-code codex -y --copy
-fi
+npx_cmd skills add yinjialu/bianliang-skills -g --skill article-harness --agent claude-code codex -y --copy
 
 if [ -d "$HOME/.codex/skills" ] && [ -d "$HOME/.agents/skills/article-harness" ]; then
   mkdir -p "$HOME/.codex/skills/article-harness"
